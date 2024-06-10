@@ -8,7 +8,7 @@ router.get(["/", "/home"], asyncHandler(async(req, res) => {
     const locals = {
         title: "Home",
     };
-    const data = await Post.find();
+    const data = await Post.find(); //데이터베이스에서 가져오기 부분!!!!
     res.render("index", {locals, data, layout: mainLayout});
 }));
 router.get("/about", (req, res) => {
@@ -22,7 +22,7 @@ router.get("/about", (req, res) => {
  * 게시물 상세 보기
  * GET /post/:id
  */
-router.get(
+router.get( 
     "/post/:id",
     asyncHandler(async (req, res) => {
         const data = await Post.findOne({ _id: req.params.id });
